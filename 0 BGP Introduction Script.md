@@ -1,361 +1,545 @@
-# BGP పూర్తి పరిచయం — Video Script
-## Presenter: Kali | Duration: 5–7 Minutes | Language: Telugu
-## Format: Screen Share + Slides + Talking Head
+# 🎬 BGP Chapter 1 — Video Script (Telugu)
+## "BGP అంటే ఏమిటి? | Introduction to BGP"
+### 📌 Presented by: Kali | Duration: 5–7 Minutes | Format: Screen Share + Slides + Talking
 
 ---
 
-## ⏱️ SLIDE 1 — TITLE SLIDE (0:00 – 0:30)
-**[Show Title Slide — "BGP పూర్తి నేర్చుకోవడం"]**
-
----
-**🎙️ Script (Telugu):**
-
-> "నమస్కారం! నా పేరు Kali. మీకు BGP — Border Gateway Protocol —
-> Telugu లో నేర్పించడానికి ready గా ఉన్నాను.
->
-> ఈ video లో మనం 20 chapters అన్నింటినీ ఒక్కో introduction తో చూస్తాం.
-> ఏ chapter లో ఏం ఉంటుందో అర్థమైతే — నేర్చుకోవడం చాలా easy అవుతుంది.
->
-> Ready గా ఉన్నారా? Let's go! 🚀"
+> **📋 Script Notes:**
+> - [PAUSE] = 1-2 second pause
+> - [SLIDE] = advance to next slide
+> - (Telugu) = speak in Telugu
+> - (English) = speak in English or keep as-is
+> - 🎵 = background music cue (optional light background music)
 
 ---
 
-## ⏱️ SLIDE 2 — BGP అంటే ఏమిటి? (0:30 – 1:15)
-**[Show Slide 2 — What is BGP?]**
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🎬 INTRO (0:00 – 0:30) | SLIDE 1 — Title
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-**🎙️ Script (Telugu):**
+🎵 *[Start background music — light tech ambiance]*
 
-> "First question — BGP అంటే ఏమిటి?
->
-> చాలా simple గా చెప్పాలంటే — Internet అనేది ఒక పెద్ద city లాంటిది.
-> ఆ city లో ఎన్నో localities ఉన్నాయి. ప్రతి locality కి ఒక name ఉంటుంది.
-> BGP లో దాన్నే Autonomous System — AS అంటారు.
->
-> Hyderabad నుండి Mumbai కి letter పంపాలంటే Post Office ని trust చేస్తాం కదా?
-> అది best route choose చేస్తుంది. BGP కూడా exactly అదే చేస్తుంది —
-> కానీ letters కాదు, Data Packets కోసం!
->
-> BGP లేకపోతే Internet పని చేయదు. అంత important ఈ protocol!
-> TCP Port 179 వాడుతుంది. ప్రస్తుతం internet లో 900,000 పైగా routes ఉన్నాయి —
-> వాటన్నింటినీ BGP మాత్రమే manage చేయగలదు."
+**[SLIDE 1 visible — BGP Title Slide]**
 
----
-
-## ⏱️ SLIDE 3 — Course Road Map (1:15 – 1:50)
-**[Show Slide 3 — 20 Chapters Overview]**
-
----
-**🎙️ Script (Telugu):**
-
-> "ఇప్పుడు మన course structure చూద్దాం.
-> మనకు total 20 chapters ఉన్నాయి. 4 groups గా divide చేయవచ్చు:
+> "నమస్కారం అందరికీ! నా పేరు **Kali**.
+> Kali's Networking Series కి మీకు స్వాగతం! 🙏
 >
-> మొదటి group — Foundation. Chapters 1 నుండి 3.
-> BGP ఏమిటో, messages ఎలా పంపుతారో నేర్చుకుంటాం.
+> [PAUSE]
 >
-> రెండవ group — Core Engine. Chapters 4 నుండి 6.
-> Neighbor ఎలా connect అవుతుందో, routes ఎలా select చేస్తుందో నేర్చుకుంటాం.
+> నేడు మనం start చేయబోయే topic — **BGP** అంటే **Border Gateway Protocol**.
 >
-> మూడవ group — Scaling. Chapters 7 నుండి 9.
-> Large networks లో BGP ఎలా manage చేయాలో.
+> [PAUSE]
 >
-> నాల్గవ group — Policy. Chapters 10 నుండి 12.
-> Routes ని control, filter చేయడం నేర్చుకుంటాం.
+> ఇది networking లో **most important** protocols లో ఒకటి.
+> Internet మొత్తం BGP మీదే నడుస్తుంది — అంటే మీరు Google search చేసినప్పుడు,
+> YouTube చూసినప్పుడు — BGP background లో work చేస్తుంటుంది!
 >
-> ఆ తర్వాత Advanced topics — VPNs, Security, Data Centers, Cloud, Troubleshooting."
+> [PAUSE]
+>
+> ఈ video లో మనం **Chapter 1: Introduction to BGP** cover చేస్తాం.
+> **Telugu** లో, simple language లో, layman examples తో.
+> Let's go! 🚀"
 
 ---
 
-## ⏱️ SLIDE 4 — Chapter 1: BGP Introduction (1:50 – 2:25)
-**[Show Slide 4 — Chapter 1]**
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 📋 CHAPTER OVERVIEW (0:30 – 1:00) | SLIDE 2 — Summary
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-**🎙️ Script (Telugu):**
+**[SLIDE 2 — Chapter 1 Summary cards]**
 
-> "Chapter 1 లో మనం BGP history మరియు basics నేర్చుకుంటాం.
+> "Before we deep dive, let's see ఈ chapter లో మనం ఏం cover చేస్తాం.
 >
-> BGP-1 నుండి BGP-4 వరకు ఎలా evolve అయిందో చూస్తాం.
-> OSPF, EIGRP లాంటి IGPs ఎందుకు internet కి work చేయవో అర్థమవుతుంది.
+> [Point to each card one by one]
 >
-> Most important — Autonomous System అంటే ఏమిటో!
-> ప్రతి company, ISP కి ఒక AS Number ఉంటుంది.
-> Airtel కి ఒక number, Jio కి ఒక number — వాటి మధ్య BGP run అవుతుంది.
+> మొదట — **BGP అంటే ఏమిటి?** అని basic గా అర్థం చేసుకుంటాం.
 >
-> Public AS numbers: 1–64511. Private: 64512–65535.
-> ఇప్పుడు 4-byte AS numbers కూడా ఉన్నాయి — internet growth వల్ల!
+> తర్వాత — BGP **చరిత్ర** చూస్తాం — 1989 నుండి ఇప్పటి వరకు ఎలా evolve అయింది.
 >
-> Chapter 1 చదివిన తర్వాత — 'BGP ఎందుకు exist చేస్తుందో' clearly అర్థమవుతుంది."
-
----
-
-## ⏱️ SLIDE 5 — Ch 2 & 3: Fundamentals & Messages (2:25 – 3:00)
-**[Show Slide 5]**
-
----
-**🎙️ Script (Telugu):**
-
-> "Chapter 2 లో BGP ఎలా work చేస్తుందో నేర్చుకుంటాం.
+> [PAUSE]
 >
-> BGP ని path vector protocol అంటారు. అంటే route along the path ఉన్న
-> AS numbers ని track చేస్తుంది.
+> Then — **IGP limitations** — అంటే OSPF, EIGRP వంటివి Internet కి ఎందుకు work కావు,
+> BGP ఎందుకు కావాలి అని చూస్తాం.
 >
-> iBGP అంటే same company లోపల BGP. eBGP అంటే different companies మధ్య BGP.
-> Colony లోపల roads — iBGP. Highways between cities — eBGP!
+> BGP **vs** OSPF/EIGRP comparison చేస్తాం.
 >
-> Chapter 3 — Messages. BGP neighbors 5 types of messages exchange చేస్తారు:
+> BGP **ఎక్కడ వాడతారు** — ISP నుండి Cloud వరకు.
 >
-> OPEN — Hello! Introduce అవుతారు.
-> UPDATE — New route వచ్చింది, route withdraw అయింది.
-> KEEPALIVE — నేను still alive ఉన్నాను అని confirm.
-> NOTIFICATION — Error! Session close అవుతుంది.
-> ROUTE-REFRESH — Please routes మళ్ళీ పంపు.
+> చివరగా — **AS Numbers** అంటే ఏమిటి, Public vs Private AS.
 >
-> Phone call analogy: OPEN = Hello, UPDATE = News, KEEPALIVE = 'అక్కడే ఉన్నావా?'"
+> [PAUSE]
+>
+> And at the end — **EVE-NG Lab** కూడా చేస్తాం!
+> Theory చదివి lab చేస్తే better గా అర్థమవుతుంది.
+>
+> Ready? Let's go! ✅"
 
 ---
 
-## ⏱️ SLIDE 6 — Ch 4 & 5: States & Attributes (3:00 – 3:40)
-**[Show Slide 6]**
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🌐 SECTION 1 (1:00 – 1:45) | SLIDE 3 — What is BGP?
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-**🎙️ Script (Telugu):**
+**[SLIDE 3 — BGP Definition + Layman Example]**
 
-> "Chapter 4 — BGP Neighbor States. Finite State Machine అంటారు.
+> "అసలు **BGP అంటే ఏమిటి?**
 >
-> IDLE state నుండి start అవుతుంది. అక్కడ నుండి CONNECT, ACTIVE,
-> OPEN SENT, OPEN CONFIRM, చివరకు ESTABLISHED!
+> BGP — **Border Gateway Protocol**.
+> ఇది **Internet యొక్క routing protocol**.
 >
-> Traffic lights లాంటిది — Red నుండి Green కి వెళ్ళినట్టు.
-> Established అయితే మాత్రమే routes exchange మొదలవుతాయి.
+> [PAUSE]
 >
-> Chapter 5 — BGP Attributes. ఇవి routes కి attach అయిన labels లాంటివి.
+> Simple గా చెప్పాలంటే — Internet లో ఒక place నుండి మరొక place కి
+> data packets ఎలా travel చేయాలి అని decide చేసేది BGP.
 >
-> 4 types ఉన్నాయి:
-> Well-Known Mandatory — AS_PATH, NEXT_HOP, ORIGIN — తప్పనిసరి.
-> Well-Known Discretionary — LOCAL_PREF — optional కానీ supported.
-> Optional Transitive — COMMUNITY — forward చేయబడతాయి.
-> Optional Non-Transitive — MED — forward కాదు.
+> [PAUSE — point to layman example box]
 >
-> AS_PATH = Route ఎన్ని cities మీదుగా వచ్చిందో! Long AS_PATH = Bad route."
-
----
-
-## ⏱️ SLIDE 7 — Ch 6: Path Selection (3:40 – 4:10)
-**[Show Slide 7]**
-
----
-**🎙️ Script (Telugu):**
-
-> "Chapter 6 — BGP Best Path Selection. ఇది most important chapter!
+> 💡 **Layman Example:**
+> మీరు Hyderabad నుండి Delhi కి drive చేస్తున్నారు.
+> మీ phone లో GPS open చేస్తే — అది best route చూపిస్తుంది.
+> Highway ఉంటే highway, traffic ఉంటే alternate route.
 >
-> ఒకే destination కి multiple routes వచ్చినప్పుడు BGP ఎలా best route
-> choose చేస్తుందో 13 steps ఉన్నాయి.
+> [PAUSE]
 >
-> Hyderabad to Delhi కి 3 roads ఉంటే మీరు best road ఎంచుకుంటారు కదా?
-> BGP కూడా అదే చేస్తుంది — systematically!
+> Exactly same గా — Internet లో ఒక network నుండి మరొక network కి
+> data పంపేటప్పుడు — **BGP best route choose చేస్తుంది**.
 >
-> Step 1: Weight highest route. Step 2: LOCAL_PREF highest.
-> Step 3: Locally originated. Step 4: Shortest AS_PATH.
-> Step 5: ORIGIN code. Step 6: Lowest MED. Step 7: eBGP over iBGP.
-> Steps 8-13: IGP metric, oldest route, router ID, cluster list, neighbor IP.
+> మీ ఇంటి network = **Autonomous System** (AS) — ఇది ఒక city లాంటిది.
+> Highway = **Internet backbone** — roads లాంటివి.
+> GPS = **BGP Protocol** — route finder!
 >
-> Mnemonic: 'We Love All Older Messages — Every Old Router Never Lies!'
-> ఈ one sentence గుర్తుపెట్టుకుంటే 13 steps గుర్తుంటాయి!"
+> [PAUSE — point to key facts]
+>
+> BGP కొన్ని important facts:
+> — ఇది **TCP Port 179** వాడుతుంది.
+> — **900,000+ routes** Internet లో manage చేస్తుంది.
+> — ఇది **Path Vector Protocol** — best path choose చేస్తుంది.
+> — ISPs నుండి Cloud వరకు అన్నీ BGP వాడతాయి."
 
 ---
 
-## ⏱️ SLIDE 8 — Ch 7–9: Scaling BGP (4:10 – 4:40)
-**[Show Slide 8]**
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 📜 SECTION 2 (1:45 – 2:10) | SLIDE 4 — BGP History
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-**🎙️ Script (Telugu):**
+**[SLIDE 4 — History Timeline]**
 
-> "Chapters 7, 8, 9 — BGP ని scale చేయడం.
+> "BGP history చాలా interesting గా ఉంటుంది.
 >
-> Chapter 7 — iBGP Split Horizon rule: iBGP నుండి నేర్చుకున్న route ని
-> మరో iBGP neighbor కి forward చేయకూడదు.
+> **1989** లో BGP-1 వచ్చింది — RFC 1105.
+> అది చాలా basic గా ఉండేది. Like first version of a mobile phone!
 >
-> అందుకే Full Mesh అవసరం. కానీ 100 routers ఉంటే 4950 connections!
-> అది impossible కదా?
+> [PAUSE]
 >
-> Chapter 8 — Route Reflectors! RR ఒక hub లాంటిది. Post office లాంటిది.
-> అన్ని neighbors నుండి routes collect చేసి — others కి forward చేస్తుంది.
-> Full Mesh problem solved!
+> **1990** — BGP-2. మెరుగుపడింది కానీ still incomplete.
 >
-> Chapter 9 — Confederations. AS ని smaller sub-AS లుగా divide చేయడం.
-> ఒక city ని wards గా divide చేసినట్టు. Very large ISPs వాడతారు."
-
----
-
-## ⏱️ SLIDE 9 — Ch 10–12: Policy (4:40 – 5:05)
-**[Show Slide 9]**
-
----
-**🎙️ Script (Telugu):**
-
-> "Chapters 10, 11, 12 — Traffic Engineering & Policy!
+> **1991** — BGP-3. Better stability వచ్చింది.
 >
-> Chapter 10 — Communities. Routes కి labels attach చేయడం.
-> NO_EXPORT అంటే — ఈ route AS బయటికి పంపకు!
-> Parcel మీద 'Local Delivery Only' stamp లాంటిది.
+> [PAUSE]
 >
-> Chapter 11 — Filtering. Security gate లాంటిది.
-> Prefix Lists, AS-Path Regular Expressions, Route Maps —
-> ఏ routes allow చేయాలో, ఏవి block చేయాలో control చేయవచ్చు.
+> **1994** — **BGP-4** వచ్చింది — RFC 1771, later RFC 4271.
+> ఇది game changer! **CIDR support** వచ్చింది —
+> అంటే routes ని efficiently summarize చేయవచ్చు.
 >
-> Chapter 12 — Aggregation. 4 prefixes ని ఒక summary route గా advertise చేయడం.
-> 192.168.0.0, .1.0, .2.0, .3.0 → 192.168.0.0/22 — clean and simple!
+> [PAUSE]
 >
-> ఇవి నేర్చుకుంటే real-world ISP job కి ready అవుతారు."
+> ✅ నేడు మనం **BGP-4** వాడుతున్నాం!
+> 1994 లో వచ్చింది, ఇప్పటికీ Internet మొత్తం ఇదే run చేస్తుంది.
+> ఒక protocol ఎంత powerful అయితే అంత long last అవుతుంది — BGP అదే proof!"
 
 ---
 
-## ⏱️ SLIDE 10 — Ch 13–15: VPN, MP-BGP, Security (5:05 – 5:30)
-**[Show Slide 10]**
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## ❓ SECTION 3 (2:10 – 2:45) | SLIDE 5 — Why BGP?
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-**🎙️ Script (Telugu):**
+**[SLIDE 5 — IGP Problems vs BGP Solutions]**
 
-> "Chapters 13, 14, 15 — Advanced Enterprise & SP Topics.
+> "Now — **BGP ఎందుకు కావాలి?** OSPF, EIGRP ఉన్నాయి కదా?
 >
-> Chapter 13 — BGP/MPLS VPNs. Companies ని private గా connect చేయడానికి.
-> VRF, Route Distinguisher, Route Target — shared network లో isolation create చేయడం.
-> Shared highway మీద private road లాంటిది!
+> [Point to left red side — IGP Problems]
 >
-> Chapter 14 — MP-BGP. ఒకే BGP protocol తో IPv4, IPv6, VPNv4
-> అన్నీ handle చేయవచ్చు. Multi-purpose BGP!
+> ⚠️ IGP Problems:
 >
-> Chapter 15 — Security! BGP attacks చాలా dangerous.
-> 2008 లో Pakistan Telecom YouTube ని accidentally hijack చేసింది!
-> అందుకే RPKI — Route Origin Authorization — digital certificates వాడతారు.
-> ఈ chapter చాలా important — internet security కోసం."
-
----
-
-## ⏱️ SLIDE 11 — Ch 16–18: Performance, DC, Cloud (5:30 – 5:55)
-**[Show Slide 11]**
-
----
-**🎙️ Script (Telugu):**
-
-> "Modern BGP use cases — Chapters 16, 17, 18!
+> మొదటి problem — **Scale కాదు**.
+> Internet లో 900,000+ routes ఉన్నాయి.
+> OSPF లో అన్ని routes store చేయడానికి
+> router memory చాలదు, CPU మొత్తం burn అవుతుంది!
 >
-> Chapter 16 — Performance. Route Dampening, Graceful Restart, BGP Timers.
-> Network unstable అయినప్పుడు BGP quickly recover అవ్వాలి.
+> [PAUSE]
 >
-> Chapter 17 — Data Centers! Facebook, Google data centers లో BGP ని
-> IGP గా వాడతారు. EVPN, VXLAN, Kubernetes Calico — అన్నీ BGP మీద run అవుతాయి.
+> రెండవది — OSPF entire **topology share** చేస్తుంది.
+> Different organizations మీ internal network structure చూడటం security risk!
 >
-> Chapter 18 — Cloud! AWS Direct Connect, Azure ExpressRoute,
-> Google Cloud Interconnect — అన్నీ BGP వాడతాయి.
+> మూడవది — **Routing policies** define చేయలేం.
+> Example: Airtel traffic Jio ద్వారా వెళ్ళకూడదు — ఇది IGP లో impossible.
 >
-> Hyderabad office నుండి AWS Mumbai కి private BGP connection —
-> అది ఎలా work చేస్తుందో ఇక్కడ నేర్చుకుంటాం."
+> [PAUSE — point to right green side]
+>
+> ✅ BGP Solutions:
+>
+> BGP మిలియన్ routes handle చేయగలదు!
+> AS-level abstraction వల్ల topology hide అవుతుంది.
+> Rich routing policies — traffic engineer చేయవచ్చు.
+> Different organizations మధ్య పని చేస్తుంది.
+>
+> Simple గా: BGP is designed FOR the Internet. IGP is designed FOR your office!"
 
 ---
 
-## ⏱️ SLIDE 12 — Ch 19–20: Troubleshoot & Advanced (5:55 – 6:20)
-**[Show Slide 12]**
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## ⚔️ SECTION 4 (2:45 – 3:10) | SLIDE 6 — BGP vs IGP Table
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-**🎙️ Script (Telugu):**
+**[SLIDE 6 — Comparison Table]**
 
-> "Last two chapters — Expert level!
+> "ఇప్పుడు ఒక quick comparison చూద్దాం.
 >
-> Chapter 19 — Troubleshooting. Real-world లో BGP issues fix చేయడం.
-> Neighbor not coming up, routes not advertised — common problems.
-> 'show bgp summary', 'show ip bgp neighbors' — key commands.
+> [Walk through table row by row]
 >
-> Chapter 20 — Advanced Topics. BGP Flowspec DDoS attacks block చేయడానికి.
-> BGP Segment Routing — modern traffic engineering.
-> Route Servers IXPs లో — internet exchange points లో usage.
+> BGP — **Path Vector** protocol.
+> OSPF — **Link State**, EIGRP — **Distance Vector**.
 >
-> ఇవి నేర్చుకుంటే CCIE, JNCIE లాంటి expert certifications crack చేయవచ్చు!"
-
----
-
-## ⏱️ SLIDE 13 — Learning Path (6:20 – 6:40)
-**[Show Slide 13]**
-
----
-**🎙️ Script (Telugu):**
-
-> "ఇప్పుడు important question — ఎక్కడ నుండి start చేయాలి?
+> [PAUSE]
 >
-> Phase 1: Chapters 1–6 — Foundation. Everyone కి mandatory.
-> Skip చేయకండి — basics strong అయితే advanced easy అవుతుంది.
+> BGP వాడే చోటు — **Internet and ISPs**.
+> OSPF/EIGRP — **Enterprise** లో వాడతారు.
 >
-> Phase 2: Chapters 7–9 — iBGP Scaling. iBGP problems understand చేసుకోండి.
+> Scalability — BGP **five stars** 🌟 అన్నీ!
+> OSPF/EIGRP — three stars — office కి ok, Internet కి no.
 >
-> Phase 3: Chapters 10–12 — Policy. Real-world configurations practice చేయండి.
+> [PAUSE]
 >
-> Phase 4: మీ role బట్టి choose చేయండి:
-> Service Provider → Chapter 13–15
-> Data Center → Chapter 17
-> Cloud Engineer → Chapter 18
-> Troubleshooter → Chapter 19
+> Convergence speed — BGP is slow, OSPF/EIGRP is fast.
+> ఎందుకు slow? Because BGP uses **policies** to make decisions.
+> Fast decisions can cause Internet-wide outages! So slow is intentional.
 >
-> Appendix లో BGP RFC list, Cheat sheets, Vendor commands — Cisco, Juniper, Arista అన్నీ ఉన్నాయి!"
+> Policy control — BGP **very rich**.
+> OSPF/EIGRP — almost no policy control.
+>
+> Transport: BGP TCP 179, OSPF IP Protocol 89, EIGRP IP Protocol 88."
 
 ---
 
-## ⏱️ SLIDE 14 — Closing (6:40 – 7:00)
-**[Show Closing Slide]**
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🏢 SECTION 5 (3:10 – 3:35) | SLIDE 7 — Where BGP is Used
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
-**🎙️ Script (Telugu):**
+**[SLIDE 7 — Use Cases Grid]**
 
-> "Congratulations! మీరు BGP 20 chapters introduction complete చేసారు!
+> "BGP ఎక్కడ వాడతారు? ఇది చాలా important question.
 >
-> ఈ video లో మనం చూసింది:
-> BGP అంటే ఏమిటో, ఎందుకు important అయిందో,
-> మొత్తం 20 chapters ఏం cover చేస్తాయో —
-> అన్నీ Telugu లో simple examples తో అర్థమయాయి.
+> [Point to each card]
 >
-> Next video లో Chapter 1 Deep Dive చేస్తాం —
-> AS Numbers, BGP History, IGP vs BGP — పూర్తిగా.
+> 🌐 **Internet** — ISPs మధ్య global routing. మీరు Twitter open చేసినప్పుడు
+> Hyderabad నుండి data San Francisco వెళ్తుంది — BGP route చేస్తుంది!
 >
-> Video helpful గా అనిపిస్తే:
-> Like చేయండి, Subscribe చేయండి, Bell icon press చేయండి.
-> Comments లో మీ doubts వేయండి — answer చేస్తాను.
+> 🏭 **ISPs** — Airtel, Jio, BSNL అన్నీ BGP వాడతాయి.
+> Customer routes announce చేయడానికి.
 >
-> Share చేయండి — ఇంకో Telugu person BGP నేర్చుకునే chance ఇద్దాం!
+> ☁️ **Cloud** — AWS, Azure, Google Cloud.
+> మీరు AWS Direct Connect వాడితే — BGP ద్వారా!
 >
-> Thank you! BGP journey మొదలు పెట్టారు — keep going! 💪"
-
----
-
-## 📊 Video Timing Summary
-
-| Slide | Topic | Time | Duration |
-|-------|-------|------|----------|
-| 1 | Title + Intro | 0:00 | 30 sec |
-| 2 | What is BGP? | 0:30 | 45 sec |
-| 3 | Course Roadmap | 1:15 | 35 sec |
-| 4 | Chapter 1 Intro | 1:50 | 35 sec |
-| 5 | Ch 2–3 | 2:25 | 35 sec |
-| 6 | Ch 4–5 | 3:00 | 40 sec |
-| 7 | Ch 6 Path Selection | 3:40 | 30 sec |
-| 8 | Ch 7–9 Scaling | 4:10 | 30 sec |
-| 9 | Ch 10–12 Policy | 4:40 | 25 sec |
-| 10 | Ch 13–15 VPN/Security | 5:05 | 25 sec |
-| 11 | Ch 16–18 DC/Cloud | 5:30 | 25 sec |
-| 12 | Ch 19–20 Expert | 5:55 | 25 sec |
-| 13 | Learning Path | 6:20 | 20 sec |
-| 14 | Closing CTA | 6:40 | 20 sec |
-
-**Total: ~7:00 minutes** ✅
+> 🏢 **Enterprise** — Large companies data center interconnect కి.
+>
+> 📱 **CDN** — Netflix, YouTube — content delivery optimize చేయడానికి BGP.
+>
+> 🔬 **SD-WAN** — Modern WAN solutions — BGP as control plane.
+>
+> [PAUSE]
+>
+> 💡 Bottom line: మీరు Google search చేస్తే — BGP మీ data ని
+> world-wide route చేస్తుంది. BGP లేకుండా Internet లేదు!"
 
 ---
 
-## 🎬 Production Notes
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🏘️ SECTION 6 (3:35 – 4:10) | SLIDE 8 — Autonomous Systems
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-- **Screen Layout**: Slides full screen, small webcam corner (bottom right)
-- **Transitions**: Simple fade between slides (no flashy animations)
-- **Font on screen**: Telugu font — Noto Sans Telugu or Gautami
-- **Background music**: Low-volume tech ambient music (optional)
-- **Outro**: Subscribe animation + Chapter 1 preview thumbnail
+**[SLIDE 8 — Autonomous Systems]**
+
+> "BGP understand చేయాలంటే — **AS అంటే ఏమిటి** అని తెలుసుకోవాలి.
+>
+> AS = **Autonomous System**.
+> ఇది ఒక organization యొక్క network collection —
+> same routing policy తో నడుస్తుంది.
+>
+> [PAUSE — point to analogy]
+>
+> 🏙️ **Analogy:**
+> AS అనేది ఒక 'దేశం' లాంటిది!
+>
+> India = AS — TATA Communications.
+> USA = AS — AT&T.
+> UK = AS — BT Group.
+>
+> [PAUSE]
+>
+> ప్రతి దేశానికి తన **rules, policies** ఉన్నాయి.
+> దేశాల మధ్య trade (data exchange) చేయడానికి BGP.
+>
+> Exactly like how countries have import/export policies —
+> BGP కి routing policies ఉంటాయి.
+>
+> [PAUSE — point to key facts]
+>
+> Key facts:
+> — ప్రతి AS కి unique **AS Number (ASN)** ఉంటుంది.
+> — IANA/RIPE/ARIN ద్వారా assign అవుతుంది.
+> — **eBGP** = different AS మధ్య — external BGP.
+> — **iBGP** = same AS లో — internal BGP.
+> — Internet లో **100,000+ AS** ఉన్నాయి today!"
 
 ---
-*Script by Kali | BGP Telugu Learning Series*
+
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🔢 SECTION 7 (4:10 – 4:35) | SLIDE 9 — AS Numbers
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**[SLIDE 9 — AS Numbers: Public vs Private, 2-byte vs 4-byte]**
+
+> "ఇప్పుడు AS Numbers గురించి మాట్లాడుకుందాం.
+>
+> AS Numbers రెండు types ఉన్నాయి:
+>
+> [Point to left blue box — Public]
+>
+> 🌐 **Public AS Numbers:**
+> Range: 1 నుండి 64,511 వరకు (2-byte).
+> ISPs మరియు large companies వాడతాయి.
+> IANA assign చేస్తుంది.
+> Example: Google = AS **15169** !
+> TATA Communications = AS **6453**.
+>
+> [PAUSE — point to right green box — Private]
+>
+> 🔒 **Private AS Numbers:**
+> Range: 64,512 నుండి 65,535 వరకు.
+> Internal use కి — ISP-Customer connection లో.
+> Internet లో advertise అవ్వవు.
+> మీ home lab లో వాడుకోవచ్చు — AS **65001**, AS **65002**.
+>
+> [PAUSE — point to bottom table]
+>
+> **2-byte vs 4-byte:**
+> Original BGP — 2-byte AS — 0 to 65,535 — 65K numbers only.
+> Internet grow అవుతున్నది, 65K చాలలేదు!
+>
+> So RFC 6793 — **4-byte AS** వచ్చింది.
+> Range: 0 to 4.3 **billion**! Future-proof.
+>
+> Modern BGP devices అన్నీ 4-byte support చేస్తాయి."
+
+---
+
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## ✅ RECAP (4:35 – 5:00) | SLIDE 10 — Chapter 1 Recap
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**[SLIDE 10 — Recap cards]**
+
+> "Excellent! ఇప్పుడు quickly recap చేద్దాం.
+>
+> [Count on fingers / point to each card]
+>
+> 1️⃣ BGP = Border Gateway Protocol — Internet routing backbone.
+>
+> 2️⃣ Path Vector Protocol — TCP port **179** — BGP-4 (RFC 4271).
+>
+> 3️⃣ IGP scale కాదు — BGP Internet-scale కోసం specifically designed.
+>
+> 4️⃣ ISP, Cloud, Enterprise, Internet — అన్నిచోట్లా BGP!
+>
+> 5️⃣ AS = ఒక organization network — Unique AS Number ఉంటుంది.
+>
+> 6️⃣ ASN: Public (1–64511) | Private (64512–65535) | 4-byte also!
+>
+> [PAUSE]
+>
+> ఇవి చాలా important points. Notes చేసుకోండి!
+>
+> Next — **EVE-NG Lab** time! 🧪"
+
+---
+
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🧪 EVE-NG LAB INTRO (5:00 – 5:15) | SLIDE 11 — Lab Title
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**[SLIDE 11 — EVE-NG Lab Title]**
+
+> "Theory చదివాం — ఇప్పుడు **practical** చేద్దాం!
+>
+> EVE-NG లో మనం **3 routers** తో simple BGP lab setup చేస్తాం.
+>
+> Topology:
+> — 3 Routers: R1, R2, R3
+> — 3 different AS numbers: AS 65001, 65002, 65003
+> — R1-R2 eBGP, R2-R3 eBGP connections
+>
+> Images: Cisco IOSv లేదా CSR1000v వాడతాం.
+> GNS3 కూడా same గా work చేస్తుంది.
+>
+> Time: approximately **30-45 minutes**.
+>
+> Goal: BGP neighbor establish చేయడం, routes advertise చేయడం!
+>
+> EVE-NG install చేయలేదా? www.eve-ng.net నుండి free community edition download చేయండి."
+
+---
+
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## ⚙️ LAB CONFIG (5:15 – 6:15) | SLIDE 12 — Lab Topology & Config
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**[SLIDE 12 — Topology diagram + Config steps]**
+
+> "ఇది మన lab topology.
+>
+> [Point to diagram]
+>
+> R1 (AS 65001) ←→ R2 (AS 65002) ←→ R3 (AS 65003)
+> eBGP session మధ్య R1-R2 మరియు R2-R3.
+>
+> [Walk through each step]
+>
+> **Step 1:**
+> EVE-NG లో new lab create చేయండి.
+> 3 routers drag చేయండి, connections పెట్టండి.
+>
+> **Step 2:**
+> R1 configuration:
+> ```
+> interface GigabitEthernet0/0
+>  ip address 10.0.12.1 255.255.255.0
+>  no shutdown
+> ```
+>
+> [PAUSE]
+>
+> **Step 3:**
+> R1 BGP configuration:
+> ```
+> router bgp 65001
+>  neighbor 10.0.12.2 remote-as 65002
+>  network 192.168.1.0 mask 255.255.255.0
+> ```
+>
+> **Step 4:**
+> R2 BGP — both neighbors configure చేయాలి.
+>
+> ```
+> router bgp 65002
+>  neighbor 10.0.12.1 remote-as 65001
+>  neighbor 10.0.23.2 remote-as 65003
+> ```
+>
+> [PAUSE]
+>
+> **Step 5:**
+> Verify! Show commands run చేయండి.
+>
+> Most important command: `show ip bgp summary`
+> Neighbor state **Established** అయిందా? ✅ Done!"
+
+---
+
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🔍 VERIFICATION (6:15 – 6:45) | SLIDE 13 — Verification
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**[SLIDE 13 — Verification Commands]**
+
+> "ఇప్పుడు verification చేద్దాం.
+>
+> [Read each command]
+>
+> **show ip bgp summary** — ఇది most important command.
+> Output లో Neighbor IP, AS number, Messages, Up/Down time,
+> మరియు **State/PfxRcd** column చూస్తాం.
+>
+> [PAUSE]
+>
+> State column లో number వస్తే — Established అయింది!
+> 'Idle' లేదా 'Active' వస్తే — problem ఉంది.
+>
+> [PAUSE]
+>
+> **show ip bgp neighbors 10.0.12.2** — detailed info.
+> 'BGP state = Established' అని కనిపించాలి.
+>
+> [PAUSE]
+>
+> **show ip bgp** — routing table.
+> Network, Next Hop, Path అన్నీ కనిపిస్తాయి.
+>
+> [PAUSE]
+>
+> 🎉 'Established' అని కనిపిస్తే — Congratulations!
+> మీరు first BGP lab successfully complete చేశారు!
+> ఇది చాలా important milestone!"
+
+---
+
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🎓 OUTRO (6:45 – 7:00) | SLIDE 14 — Closing
+## ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**[SLIDE 14 — Thank You / Closing]**
+
+> "అంతే! Chapter 1 complete అయింది! 🎓
+>
+> [PAUSE]
+>
+> Today మనం నేర్చుకున్నవి:
+> BGP అంటే ఏమిటి, చరిత్ర, ఎందుకు కావాలి,
+> ఎక్కడ వాడతారు, AS concepts మరియు EVE-NG lab కూడా చేశాం.
+>
+> [PAUSE]
+>
+> Next video లో — **Chapter 2: BGP Fundamentals** —
+> iBGP vs eBGP, BGP Tables, NLRI — అన్నీ cover చేస్తాం.
+>
+> [PAUSE]
+>
+> Please 👍 **Like** చేయండి, 🔔 **Subscribe** చేయండి,
+> మరియు Questions ఉంటే **Comment** పెట్టండి!
+>
+> మీ friends కి కూడా **share** చేయండి —
+> Telugu లో networking నేర్చుకోవాలనుకున్న వారందరికీ ఉపయోగపడుతుంది.
+>
+> [PAUSE]
+>
+> నమస్కారం! మళ్ళీ కలుద్దాం! 🙏
+> — **Kali**"
+
+---
+
+## 📊 VIDEO PRODUCTION NOTES
+
+| Item | Detail |
+|------|--------|
+| **Total Duration** | 5 min 30 sec – 7 min |
+| **Format** | Screen Share + Slides + Talking head (optional) |
+| **Language** | Telugu (primary) + English technical terms |
+| **Slides** | 14 slides |
+| **Resolution** | 1920x1080 (16:9) |
+| **Background Music** | Low-volume tech ambient — mute during lab section |
+| **Editing Tips** | Add slide transitions (Fade), zoom in on code sections |
+| **Thumbnail** | Use Slide 1 — "BGP అంటే ఏమిటి?" with Kali's photo |
+
+---
+
+## 🎬 RECORDING CHECKLIST
+
+- [ ] EVE-NG open అయి ఉందా?
+- [ ] Slides full screen mode లో ఉన్నాయా?
+- [ ] Microphone test చేశారా?
+- [ ] Screen recording software ready (OBS / Camtasia)?
+- [ ] Chapter notes దగ్గర ఉన్నాయా?
+- [ ] Lab configs pre-typed (time save కోసం)?
+
+---
+
+*Kali's BGP Learning Series | Chapter 1 of 20 | Telugu Networking Education*

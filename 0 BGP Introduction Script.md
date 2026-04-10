@@ -11,8 +11,7 @@ Telugu State లో ఉన్న మీరు — USA లో ఉన్న YouTub
 ఇక మొదలెట్టదాం!
 
 
-========================================================================================================
-Slide 2 
+================================================================
 BGP అంటే ఏమిటో చాలా simple గా అర్థం చేసుకుందాం.
 Internet అనేది ఒక Country లాంటిది. ఆ Country లో వేరు వేరు States ఉన్నాయి.
 Telangana, Andhrapradesh, Mumbai, Uttarpradesh — ఇవన్నీ different states — differnet Autonomous Systems la ga.

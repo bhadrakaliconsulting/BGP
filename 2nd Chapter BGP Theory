@@ -1,0 +1,440 @@
+# 📜 BGP Chapter 2 — Telugu Video Script
+### Presenter: Kali | Duration: 7–15 Minutes | Format: Screen Share + Slides
+
+---
+
+## ════════════════════════════════════════════
+## 🎬 INTRODUCTION SECTION (Slides 1–2)
+## ════════════════════════════════════════════
+
+---
+
+### 🖥️ SLIDE 1 — Title Slide
+**[Screen: BGP Chapter 2 Telugu Title Slide — "BGP Fundamentals" display అవుతోంది]**
+
+---
+
+**[SCRIPT — INTRODUCTION]**
+
+నమస్కారం అందరికీ! 👋
+
+నేను Kali — మీకు Telugu లో BGP నేర్పించే మీ instructor!
+
+మన BGP Complete Learning Series లో — ఇవాళ మనం **Chapter 2 — BGP Fundamentals** start చేస్తున్నాం!
+
+Chapter 1 లో మనం BGP అంటే ఏమిటి, Autonomous Systems, AS Numbers — అన్నీ cover చేశాం.
+
+ఇప్పుడు — Chapter 2 లో BGP ఎలా actually పని చేస్తుందో — అది deep గా చూద్దాం!
+
+ఈ video లో మనం నేర్చుకునేది:
+- BGP Path Vector Protocol అంటే ఏమిటి
+- BGP Speaker మరియు BGP Router types
+- iBGP vs eBGP — key differences
+- TCP Port 179 session
+- BGP Neighbor concept
+- BGP Tables — RIB, Adj-RIB-In, Loc-RIB
+- NLRI — route announcement
+
+7 topics — ఒక్కో topic real-life examples తో నేర్చుకుంటాం!
+
+**Video end లో మీకు BGP fundamentals పూర్తిగా clear అవుతాయి — guarantee!**
+
+చివరకు వరకు చూడండి! Let's go! 🚀
+
+---
+
+### 🖥️ SLIDE 2 — What We'll Learn (Hook Slide)
+**[Screen: Curiosity question + 3 learning cards display అవుతున్నాయి]**
+
+---
+
+**[SCRIPT — HOOK]**
+
+ముందుగా ఒక question — ఒక్క second ఆలోచించండి:
+
+**"మీరు Kurnool నుండి WhatsApp message send చేస్తే — అది Mumbai server కి ఎలా reach అవుతుంది?"**
+
+ఇది magic కాదు — ఇది **BGP!**
+
+BGP ఆ data packet కి road map చూపిస్తుంది.
+
+ఇవాళ మనం ఆ road map ఎలా work చేస్తుందో నేర్చుకుంటాం:
+- BGP ఎలా పని చేస్తుందో — concept గా
+- Neighbors ఎలా form అవుతాయో — technically
+- BGP Tables ఎలా data store చేస్తాయో — practically
+
+Ready? Slide 3 కి వెళ్దాం!
+
+---
+
+## ════════════════════════════════════════════
+## 📚 BODY SECTION (Slides 3–9) — EDUCATION
+## ════════════════════════════════════════════
+
+---
+
+### 🖥️ SLIDE 3 — 2.1 BGP as a Path Vector Protocol
+**[Screen: Path Vector comparison — DV vs LS vs PV cards display అవుతున్నాయి]**
+
+---
+
+**[SCRIPT — 2.1 PATH VECTOR]**
+
+Okay! Topic 2.1 — **BGP Path Vector Protocol.**
+
+మీరు networking నేర్చుకున్నప్పుడు protocols రెండు types చూశారు:
+
+**Distance Vector** — RIP, EIGRP లాంటివి — ఇవి hop count మాత్రమే చూస్తాయి.
+"3 routers దాటాను" — అంతే information ఉంటుంది.
+
+**Link State** — OSPF, IS-IS లాంటివి — full topology map build చేస్తాయి.
+పక్కింటి వాళ్ళతో మాత్రమే directly share చేస్తాయి.
+
+**BGP — Path Vector** — ఇది completely different!
+
+BGP route తో పాటు **AS_PATH** carry చేస్తుంది — అంటే ఆ route ఏ ఏ AS మీదుగా వచ్చిందో complete list!
+
+**Real Example — Post Office Analogy:**
+
+మీరు Kurnool నుండి Mumbai కి parcel పంపాలి.
+
+Distance Vector పద్ధతిలో: "3 cities దాటాను" — అంతే.
+
+BGP Path Vector పద్ధతిలో: "Kurnool → Hyderabad → Pune → Mumbai" — exact path!
+
+AS_PATH = [AS65001 → AS65002 → AS65003]
+
+ఈ path information వల్ల రెండు ముఖ్యమైన benefits:
+1. **Loop prevention** — path లో own AS ఉంటే route reject చేస్తుంది
+2. **Policy decisions** — shorter path choose చేయవచ్చు
+
+**BGP path vector అందుకే unique — అందుకే internet routing కోసం perfect!**
+
+---
+
+### 🖥️ SLIDE 4 — 2.2 BGP Speaker & BGP Router
+**[Screen: BGP Speaker card మరియు BGP Router Types card display అవుతున్నాయి]**
+
+---
+
+**[SCRIPT — 2.2 BGP SPEAKER]**
+
+Topic 2.2 — **BGP Speaker మరియు BGP Router types.**
+
+చాలా simple concept ఇది.
+
+**BGP Speaker అంటే?**
+BGP protocol run చేసే ఏ router అయినా BGP Speaker అవుతుంది.
+
+అది BGP messages send చేయగలదు, receive చేయగలదు, neighbor తో TCP session maintain చేయగలదు.
+
+**Telephone Exchange Analogy:**
+
+BGP Speaker = Telephone Exchange Operator.
+ఆ operator రూట్ information share చేస్తాడు — BGP messages form లో.
+
+**Router-ID** = ఆ operator యొక్క unique phone number!
+
+Router-ID usually Loopback interface IP వాడతారు — ఎందుకంటే Loopback always stable గా UP ఉంటుంది.
+
+**BGP Router Types:**
+
+1. **Edge Router** — AS border లో eBGP run చేస్తుంది — outside world తో talk చేస్తుంది
+2. **Internal Router** — AS లోపల iBGP run చేస్తుంది
+3. **Route Reflector** — iBGP routes re-advertise చేస్తుంది — Chapter 8 లో detailed గా
+4. **ASBR** (AS Boundary Router) — eBGP మరియు iBGP రెండూ run చేస్తుంది
+5. **PE Router** — MPLS network లో Provider Edge — Chapter 13 లో చూస్తాం
+
+Key point: Router-ID unique గా ఉండాలి — otherwise BGP problems వస్తాయి!
+
+---
+
+### 🖥️ SLIDE 5 — 2.3 iBGP vs eBGP
+**[Screen: iBGP card (teal) మరియు eBGP card (orange) side-by-side display అవుతున్నాయి]**
+
+---
+
+**[SCRIPT — 2.3 iBGP vs eBGP]**
+
+ఇప్పుడు చాలా important topic — **iBGP vs eBGP!**
+
+BGP రెండు types లో run అవుతుంది — iBGP మరియు eBGP.
+
+**iBGP — Internal BGP:**
+
+ఒకే AS లోపల routers మధ్య BGP = iBGP.
+
+Example: BSNL AS (AS9829) లోపల Hyderabad router మరియు Mumbai router మాట్లాడుకోవడం.
+
+Key differences:
+- Admin Distance = **200** (higher = less preferred)
+- TTL = **255** — multihop allowed
+- NEXT_HOP change చేయదు — as-is forward చేస్తుంది
+- **Full Mesh required** — లేదంటే Route Reflector వాడాలి
+
+**eBGP — External BGP:**
+
+Different AS మధ్య BGP = eBGP.
+
+Example: BSNL (AS9829) ↔ Airtel (AS24560) — ఇవి రెండు different companies.
+
+Key differences:
+- Admin Distance = **20** (lower = more preferred!)
+- TTL = **1** — directly connected expected
+- **NEXT_HOP** = peer's IP address గా set అవుతుంది
+- AS_PATH లో own AS number append చేస్తుంది
+
+**Simple way to remember:**
+
+iBGP = ఒకే colony లో ఇళ్ళు మాట్లాడుకోవడం
+eBGP = వేరే colonies మధ్య road connection
+
+**Lab లో మనం రెండూ configure చేస్తాం — clear అవుతుంది!**
+
+---
+
+### 🖥️ SLIDE 6 — 2.4 BGP TCP Session Port 179
+**[Screen: TCP 3-way handshake flow + Why TCP boxes display అవుతున్నాయి]**
+
+---
+
+**[SCRIPT — 2.4 TCP PORT 179]**
+
+Topic 2.4 — **BGP TCP Session, Port 179.**
+
+ఒక important question — BGP UDP వాడదా? TCP వాడదా?
+
+**Answer: TCP Port 179!**
+
+ఎందుకు TCP?
+
+BGP UPDATE messages చాలా large గా ఉంటాయి — hundreds of thousands of routes carry చేయాల్సి ఉంటుంది.
+
+UDP reliable కాదు — packet loss అవుతుంది. BGP కి that risk afford చేయడం కుదరదు.
+
+TCP — reliable, ordered delivery guarantee చేస్తుంది. BGP itself retransmission handle చేయాల్సిన పని లేదు.
+
+**TCP 3-Way Handshake Process:**
+
+Step 1: Router A — SYN send చేస్తుంది Port 179 కి
+Step 2: Router B — SYN-ACK reply ఇస్తుంది
+Step 3: Router A — ACK confirm చేస్తుంది
+Step 4: TCP session UP — BGP OPEN message exchange start!
+
+**Important Timers:**
+
+- **Hold Timer** = 90 seconds (default) — ఈ time లో Keepalive రాకపోతే session drop
+- **Keepalive** = 30 seconds — "నేను alive!" అని signal
+- Hold Timer = Keepalive × 3 — standard formula
+
+**eBGP Multihop:**
+
+eBGP default గా directly connected peers expect చేస్తుంది — TTL=1.
+
+Non-directly connected peers కి `ebgp-multihop` command వాడాలి — TTL increase అవుతుంది.
+
+Loopback source తో eBGP configure చేస్తే multihop mandatory!
+
+---
+
+### 🖥️ SLIDE 7 — 2.5 BGP Neighbor Concept
+**[Screen: Basic BGP config code + 4 requirement cards display అవుతున్నాయి]**
+
+---
+
+**[SCRIPT — 2.5 BGP NEIGHBOR]**
+
+Topic 2.5 — **BGP Neighbor Concept.**
+
+OSPF తెలుసు కదా — OSPF Hello packets వాడి automatically neighbors discover చేస్తుంది.
+
+**BGP అలా కాదు!**
+
+BGP neighbors **manually configure** చేయాలి. ఇది BGP design philosophy.
+
+**ఎందుకు manual?**
+
+Internet లో thousands of ASes ఉన్నాయి — అన్నింటినీ automatically trust చేయడం security risk!
+
+BGP manual peering = deliberate business decision. "మీతో route information share చేస్తా" అని explicitly agree చేయడం.
+
+**Mandatory Configuration:**
+
+```
+router bgp 65001
+ neighbor 192.168.1.2 remote-as 65002
+```
+
+రెండే lines — IP address మరియు Remote AS number — mandatory!
+
+**Phone Contact Analogy:**
+
+BGP Neighbor = Phone Contact.
+
+మీరు friend కి call చేయాలంటే:
+- Phone number (IP address) save చేయాలి
+- Network reachable ఉండాలి (TCP connectivity)
+- Manual గా save చేయాలి — auto discover రాదు!
+
+**Optional config:**
+
+- `update-source Loopback0` — stable source IP వాడటానికి
+- `description` — human readable label
+- `password` — MD5 authentication
+
+**Real world లో eBGP peering agreements** — ISPs మధ్య formal contracts ఉంటాయి before BGP peering!
+
+---
+
+### 🖥️ SLIDE 8 — 2.6 BGP Tables — RIB & Adj-RIBs
+**[Screen: 4 table flow diagram + 3 detail cards display అవుతున్నాయి]**
+
+---
+
+**[SCRIPT — 2.6 BGP TABLES]**
+
+ఇప్పుడు BGP లో most important concept — **BGP Tables!**
+
+BGP 4 different tables maintain చేస్తుంది — ప్రతి ఒక్కటీ ఒక specific purpose కి.
+
+**Full Flow:**
+
+Adj-RIB-In → Decision Process → Loc-RIB → Decision Process → Adj-RIB-Out
+
+**1. Adj-RIB-In (Inbound Table):**
+
+Neighbors నుండి వచ్చిన raw routes store అవుతాయి ఇక్కడ.
+
+Inbound policy ఇంకా apply కాలేదు. "నీకు ఏం వచ్చిందో" అంతే store చేస్తుంది.
+
+`show ip bgp neighbors X.X.X.X received-routes` — ఈ table view చేయడానికి `soft-reconfig inbound` enable చేయాలి.
+
+**2. Decision Process:**
+
+13-step best path selection algorithm run అవుతుంది — Chapter 6 లో detailed గా నేర్చుకుంటాం.
+
+**3. Loc-RIB (Local RIB — Main BGP Table):**
+
+Best paths selected అయిన తర్వాత ఇక్కడ store అవుతాయి.
+
+IP Routing Table కి feed అవుతాయి ఈ routes.
+
+`show ip bgp` — ఈ table చూపిస్తుంది.
+
+`*>` symbol = best path, installed in routing table.
+
+**4. Adj-RIB-Out (Outbound Table):**
+
+Neighbors కి advertise చేసే routes ఉంటాయి ఇక్కడ.
+
+Outbound policy apply అయిన తర్వాత.
+
+`show ip bgp neighbors X.X.X.X advertised-routes` command.
+
+**Library Analogy:**
+
+Adj-RIB-In = Library కి వచ్చిన new books (not yet catalogued)
+Decision Process = Librarian selection process
+Loc-RIB = Main catalogue — best books selected
+Adj-RIB-Out = Books shared with other libraries
+
+---
+
+### 🖥️ SLIDE 9 — 2.7 BGP NLRI
+**[Screen: NLRI definition + NLRI vs Withdrawn cards display అవుతున్నాయి]**
+
+---
+
+**[SCRIPT — 2.7 NLRI]**
+
+Last topic — Topic 2.7 — **BGP NLRI!**
+
+NLRI = **Network Layer Reachability Information.**
+
+పెద్ద name — simple concept!
+
+BGP UPDATE message లో ఉండే route information = NLRI.
+
+Format: (Length, Prefix) pairs.
+
+Example: 192.168.10.0/24 — ఇది ఒక NLRI.
+
+**BGP UPDATE message లో రెండు fields:**
+
+1. **NLRI field** — New routes announce చేయడానికి
+2. **Withdrawn Routes field** — Remove చేయాల్సిన routes కి
+
+**Newspaper Analogy:**
+
+NLRI = Today's newspaper headlines!
+
+BSNL router: "192.168.10.0/24 network నాది — ఇక్కడికి reach చేయవచ్చు!" — announce చేస్తుంది.
+
+Airtel router receive చేసి table లో store చేస్తుంది.
+
+Link down అయితే: BSNL "192.168.10.0/24 — withdraw! No longer reachable." — send చేస్తుంది.
+
+Airtel table నుండి ఆ route remove చేస్తుంది.
+
+**Important Rule:**
+
+`network` command use చేస్తే — ఆ prefix routing table లో exact గా match అయి ఉండాలి!
+
+లేకపోతే BGP ఆ network announce చేయదు.
+
+**That's NLRI — simple but powerful!**
+
+---
+
+### 🖥️ SLIDE 10 — Summary Slide
+**[Screen: Chapter 2 Summary — 7 topics boxes display అవుతున్నాయి]**
+
+---
+
+**[SCRIPT — SUMMARY & REVIEW]**
+
+Perfect! Chapter 2 complete చేశాం!
+
+Quick recap చేద్దాం:
+
+- **2.1 Path Vector** — BGP routes తో AS_PATH carry చేస్తుంది — loop prevention, better policy!
+- **2.2 BGP Speaker** — BGP run చేసే router — unique Router-ID కలిగి ఉంటుంది
+- **2.3 iBGP vs eBGP** — Same AS లో iBGP (AD=200), Different AS మధ్య eBGP (AD=20)
+- **2.4 TCP Port 179** — Reliable TCP — 3-way handshake తో BGP establish
+- **2.5 Neighbors** — Manually configure — IP + Remote-AS mandatory
+- **2.6 BGP Tables** — Adj-RIB-In → Loc-RIB → Adj-RIB-Out — complete flow
+- **2.7 NLRI** — Prefix + Length — routes announce మరియు withdraw
+
+Chapter 2 foundations clear అయ్యాయి!
+
+---
+
+## ════════════════════════════════════════════
+## 📣 CALL TO ACTION (Slide 10 — bottom)
+## ════════════════════════════════════════════
+
+**[SCRIPT — CALL TO ACTION]**
+
+ఇవాళ BGP Fundamentals chapter complete చేశారు — congratulations! 🎉
+
+ఈ video helpful గా అనిపిస్తే:
+
+👍 **Like** చేయండి — video reach పెరుగుతుంది, మీ Telugu learners కి help అవుతుంది!
+
+🔔 **Subscribe** చేయండి మరియు Bell icon click చేయండి — next video miss కాకుండా!
+
+💬 **Comments** లో మీ doubts వేయండి — ప్రతి question కి నేను reply ఇస్తాను!
+
+📤 **Share** చేయండి — Telugu లో BGP నేర్చుకోవాలనుకునే మీ friends కి forward చేయండి!
+
+**Next Video: Chapter 3 — BGP Message Types!**
+OPEN, UPDATE, KEEPALIVE, NOTIFICATION messages — ఒక్కో message ఎలా పని చేస్తుందో detail గా చూస్తాం!
+
+EVE-ng lab video కూడా separately upload చేస్తాను — hands-on practice చేయండి!
+
+మళ్ళీ కలుద్దాం — Next video లో!
+నమస్కారం! 🙏
+
+---
+*Script End — Chapter 2 Teaching Video*
+*Total Duration Estimate: 10–13 minutes*
